@@ -4,9 +4,9 @@ class AuthStore {
     token = localStorage.getItem("token") || ""
 
     constructor() {
-        makeAutoObservable(this);
+        makeAutoObservable(this)
     }
 }
 
-const authStore = new AuthStore();
+const authStore = new AuthStore()
 export { authStore }

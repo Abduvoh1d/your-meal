@@ -11,11 +11,11 @@ interface ExcelProps {
 }
 
 function Excel({
-                   disable,
-                   className = "p-2 border-2 rounded border-gray-300 me-4",
-                   iconClassName = "text-gray-500 text-md",
-                   name,
-               }: ExcelProps) {
+    disable,
+    className = "p-2 border-2 rounded border-gray-300 me-4",
+    iconClassName = "text-gray-500 text-md",
+    name,
+}: ExcelProps) {
     const handleExport = () => {
         const table = document.getElementById(name || "")
         if (table) {

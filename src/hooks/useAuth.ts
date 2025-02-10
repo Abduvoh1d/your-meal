@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { authStore } from "../store/authStore";
+import { useEffect, useState } from "react"
+import { authStore } from "../store/authStore"
 
 export const useAuth = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     useEffect(() => {
-        setIsAuthenticated(!!authStore.token);
-    }, [authStore.token]);
+        setIsAuthenticated(!!authStore.token)
+    }, [authStore.token])
 
-    return { isAuthenticated };
-};
+    return { isAuthenticated }
+}

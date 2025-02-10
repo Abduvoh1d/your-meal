@@ -1,7 +1,5 @@
 function Filials() {
-    return (
-        <div></div>
-    )
+    return <div></div>
 }
 
 export default Filials

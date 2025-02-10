@@ -7,7 +7,7 @@ i18n.use(HttpApi)
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        supportedLngs: ["uz", "ru"],
+        supportedLngs: ["uz", "ru" , "en"],
         fallbackLng: "uz",
         detection: {
             order: ["path", "cookie", "navigator", "localStorage"],
