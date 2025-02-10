@@ -19,11 +19,9 @@ const AppRouter = () => {
     return (
         <Router>
             <Routes>
-                {/* Auth routes */}
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
 
-                {/* Admin routes */}
                 <Route path={`/admin`} element={<Sidebar />}>
                     <Route path={AdminPagesConfig.Dashboard} element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                     <Route path={AdminPagesConfig.Maxsulotlar} element={<PrivateRoute><Products /></PrivateRoute>} />
@@ -32,7 +30,6 @@ const AppRouter = () => {
                     <Route path={AdminPagesConfig.Mijozlar} element={<PrivateRoute><Customers /></PrivateRoute>} />
                 </Route>
 
-                {/* User routes */}
                 <Route
                     path="/"
                     element={
