@@ -10,3 +10,35 @@ body {
 * {
     box-sizing: border-box;
 }
+
+.ant-menu {
+    border-left: 4px solid #fcb600;
+    border-inline-end: 0 !important;
+    border-top-left-radius: 2px !important;
+    border-bottom-left-radius: 2px !important;
+}
+
+.ant-menu-item {
+    margin-left: 0 !important;
+    padding-block: 30px !important;
+    border-radius: 0 6px 6px 0 !important;
+}
+
+.ant-menu-item:first-child {
+    margin-top: 0 !important;
+    padding-block: 30px !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.ant-menu-item:last-child {
+    margin-bottom: 0 !important;
+    padding-block: 30px !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.ant-menu-title-content {
+    font-size: 15px;
+    font-weight: 500;
+}

@@ -32,6 +32,13 @@ function App() {
                         activeShadow: "",
                         lineWidth: 2,
                     },
+                    Menu: {
+                        colorText: "#000",
+                        itemMarginBlock: 5,
+                        itemActiveBg: "#fff",
+                        itemSelectedBg: "#FCB600",
+                        itemSelectedColor: "#fff",
+                    },
                 },
             }}
         >

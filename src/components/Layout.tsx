@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom"
 
 function Layout() {
     return (
-        <div className={"flex items-start justify-start w-full min-h-screen"}>
+        <div className={"relative flex items-start justify-start w-full min-h-screen"}>
             <Sidebar />
             <div>
                 <Header />

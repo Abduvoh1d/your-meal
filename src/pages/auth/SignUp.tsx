@@ -1,5 +1,4 @@
 import { Button, Col, FormProps, Row } from "antd"
-import loginImg from "../../assets/img/loginImg.svg"
 import { AutoForm, IAutoForm } from "../../components/auto-form"
 import { useForm } from "antd/es/form/Form"
 import { Link } from "react-router-dom"
@@ -71,7 +70,7 @@ function SignUp() {
                 </Button>
             </Col>
             <Col span={15}>
-                <img src={loginImg} alt="Auth Img" className="max-h-screen w-full object-cover" />
+                <img src="/img/loginImg.svg" alt="Auth Img" className="max-h-screen w-full object-cover" />
             </Col>
         </Row>
     )

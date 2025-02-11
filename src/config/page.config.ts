@@ -4,11 +4,12 @@ class AuthPages {
 }
 
 class AdminPages {
-    Dashboard = "dashboard"
+    Buyurtmalar = "orders"
     Maxsulotlar = "products"
     Kategorylar = "categorys"
     Filialar = "filials"
     Mijozlar = "customers"
+    Xisobot = "dashboard"
 }
 
 class UserPages {
