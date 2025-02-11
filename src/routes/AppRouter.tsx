@@ -1,83 +1,87 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import SignIn from "../pages/auth/SignIn"
-import SignUp from "../pages/auth/SignUp"
-import Dashboard from "../pages/admin/Dashboard.tsx"
-import Products from "../pages/admin/Products.tsx"
-import Categorys from "../pages/admin/Categorys.tsx"
-import Filials from "../pages/admin/Filials.tsx"
-import Customers from "../pages/admin/Customers.tsx"
-import Main from "../pages/user/Main.tsx"
-import PrivateRoute from "../components/PrivateRoute.tsx"
-import NotFound from "../pages/404/NotFound.tsx"
-import { AdminPagesConfig } from "../config/page.config.ts"
-import Layout from "../components/Layout.tsx"
+import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PrivateRoute from "../components/PrivateRoute.tsx";
+import { AdminPagesConfig } from "../config/page.config.ts";
+import Layout from "../components/Layout.tsx";
+import { Loading } from "../components/Loading.tsx"
+
+// Lazy load sahifalar
+const SignIn = lazy(() => import("../pages/auth/SignIn"));
+const SignUp = lazy(() => import("../pages/auth/SignUp"));
+const Dashboard = lazy(() => import("../pages/admin/Dashboard"));
+const Products = lazy(() => import("../pages/admin/Products"));
+const Categorys = lazy(() => import("../pages/admin/Categorys"));
+const Filials = lazy(() => import("../pages/admin/Filials"));
+const Customers = lazy(() => import("../pages/admin/Customers"));
+const Main = lazy(() => import("../pages/user/Main"));
+const NotFound = lazy(() => import("../pages/404/NotFound"));
 
 const AppRouter = () => {
-    // const { i18n } = useTranslation()
-
     return (
         <Router>
-            <Routes>
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/sign-up" element={<SignUp />} />
+            <Suspense fallback={<Loading/>}>
+                <Routes>
+                    <Route path="/sign-in" element={<SignIn />} />
+                    <Route path="/sign-up" element={<SignUp />} />
 
-                <Route path={`/admin`} element={<Layout />}>
-                    <Route
-                        path={AdminPagesConfig.Dashboard}
-                        element={
-                            <PrivateRoute>
-                                <Dashboard />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path={AdminPagesConfig.Maxsulotlar}
-                        element={
-                            <PrivateRoute>
-                                <Products />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path={AdminPagesConfig.Kategorylar}
-                        element={
-                            <PrivateRoute>
-                                <Categorys />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path={AdminPagesConfig.Filialar}
-                        element={
-                            <PrivateRoute>
-                                <Filials />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path={AdminPagesConfig.Mijozlar}
-                        element={
-                            <PrivateRoute>
-                                <Customers />
-                            </PrivateRoute>
-                        }
-                    />
-                </Route>
+                    <Route path={`/admin`} element={<Layout />}>
+                        <Route
+                            path={AdminPagesConfig.Dashboard}
+                            element={
+                                <PrivateRoute>
+                                    <Dashboard />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={AdminPagesConfig.Maxsulotlar}
+                            element={
+                                <PrivateRoute>
+                                    <Products />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={AdminPagesConfig.Kategorylar}
+                            element={
+                                <PrivateRoute>
+                                    <Categorys />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={AdminPagesConfig.Filialar}
+                            element={
+                                <PrivateRoute>
+                                    <Filials />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={AdminPagesConfig.Mijozlar}
+                            element={
+                                <PrivateRoute>
+                                    <Customers />
+                                </PrivateRoute>
+                            }
+                        />
+                    </Route>
 
-                <Route
-                    path="/"
-                    element={
-                        <PrivateRoute>
-                            <Main />
-                        </PrivateRoute>
-                    }
-                />
+                    <Route
+                        path="/"
+                        element={
+                            <PrivateRoute>
+                                <Main />
+                            </PrivateRoute>
+                        }
+                    />
 
-                {/* Default redirect */}
-                <Route path="*" element={<NotFound />} />
-            </Routes>
+                    {/* Default redirect */}
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </Suspense>
         </Router>
-    )
-}
+    );
+};
 
-export default AppRouter
+export default AppRouter;
