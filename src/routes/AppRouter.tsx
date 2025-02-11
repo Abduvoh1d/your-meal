@@ -10,8 +10,7 @@ import Main from "../pages/user/Main.tsx"
 import PrivateRoute from "../components/PrivateRoute.tsx"
 import NotFound from "../pages/404/NotFound.tsx"
 import { AdminPagesConfig } from "../config/page.config.ts"
-// import { useTranslation } from "react-i18next"
-import Sidebar from "../components/Sidebar.tsx"
+import Layout from "../components/Layout.tsx"
 
 const AppRouter = () => {
     // const { i18n } = useTranslation()
@@ -22,12 +21,47 @@ const AppRouter = () => {
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
 
-                <Route path={`/admin`} element={<Sidebar />}>
-                    <Route path={AdminPagesConfig.Dashboard} element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-                    <Route path={AdminPagesConfig.Maxsulotlar} element={<PrivateRoute><Products /></PrivateRoute>} />
-                    <Route path={AdminPagesConfig.Kategorylar} element={<PrivateRoute><Categorys /></PrivateRoute>} />
-                    <Route path={AdminPagesConfig.Filialar} element={<PrivateRoute><Filials /></PrivateRoute>} />
-                    <Route path={AdminPagesConfig.Mijozlar} element={<PrivateRoute><Customers /></PrivateRoute>} />
+                <Route path={`/admin`} element={<Layout />}>
+                    <Route
+                        path={AdminPagesConfig.Dashboard}
+                        element={
+                            <PrivateRoute>
+                                <Dashboard />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path={AdminPagesConfig.Maxsulotlar}
+                        element={
+                            <PrivateRoute>
+                                <Products />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path={AdminPagesConfig.Kategorylar}
+                        element={
+                            <PrivateRoute>
+                                <Categorys />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path={AdminPagesConfig.Filialar}
+                        element={
+                            <PrivateRoute>
+                                <Filials />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path={AdminPagesConfig.Mijozlar}
+                        element={
+                            <PrivateRoute>
+                                <Customers />
+                            </PrivateRoute>
+                        }
+                    />
                 </Route>
 
                 <Route

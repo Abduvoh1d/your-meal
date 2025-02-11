@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import AppRouter from "./routes/AppRouter.tsx"
+import { ConfigProvider } from "antd"
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -22,10 +23,23 @@ const queryClient = new QueryClient({
 
 function App() {
     return (
-        <QueryClientProvider client={queryClient}>
-            <ReactQueryDevtools initialIsOpen={false} />
-            <AppRouter />
-        </QueryClientProvider>
+        <ConfigProvider
+            theme={{
+                components: {
+                    Input: {
+                        hoverBorderColor: "#F7DA8F",
+                        activeBorderColor: "#FCB600",
+                        activeShadow: "",
+                        lineWidth: 2,
+                    },
+                },
+            }}
+        >
+            <QueryClientProvider client={queryClient}>
+                <ReactQueryDevtools initialIsOpen={false} />
+                <AppRouter />
+            </QueryClientProvider>
+        </ConfigProvider>
     )
 }
 

@@ -1,8 +1,7 @@
 import axios from "axios"
 
-const BASE_URL = "https://api.example.com" // Backend API manzilini shu yerda o'zgartiring
+const BASE_URL = "https://api.example.com"
 
-// Axios instance yaratish
 const api = axios.create({
     baseURL: BASE_URL,
     timeout: 10000,

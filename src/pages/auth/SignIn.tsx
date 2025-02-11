@@ -1,67 +1,69 @@
-import { Button, Col, Form, FormProps, Input, Row } from "antd"
+import { Button, Col, FormProps, Row } from "antd"
 import loginImg from "../../assets/img/loginImg.svg"
-import { useCallback } from "react"
+import { AutoForm, IAutoForm } from "../../components/auto-form"
+import { useForm } from "antd/es/form/Form"
+import { Link } from "react-router-dom"
 
 function SignIn() {
+    const [form] = useForm()
 
-    const onFinish: FormProps['onFinish'] = useCallback((values: any) => {
+    const data: IAutoForm[] = [
+        {
+            name: "email",
+            type: "input",
+            span: 24,
+            placeholder: "Email",
+            className: "!h-[45px] ps-[20px]",
+            required: true,
+        },
+        {
+            name: "password",
+            type: "password",
+            span: 24,
+            placeholder: "Password",
+            className: "!h-[45px] ps-[20px]",
+            required: true,
+        },
+    ]
+
+    const onFinish: FormProps["onFinish"] = (values: unknown) => {
         console.log(values)
-    }, []);
-
+    }
 
     return (
-        <Row className="w-full max-h-screen flex items-center bg-[#EDEFF3]">
+        <Row className="w-full h-screen flex items-center bg-[#EDEFF3]">
             <Col span={15}>
-                <img
-                    src={loginImg}
-                    alt="Auth Img"
-                    className="max-h-screen w-full object-cover"
-                />
+                <img src={loginImg} alt="Auth Img" className="max-h-screen w-full object-cover" />
             </Col>
-            <Col
-                span={9}
-                className="flex flex-col items-center justify-center"
-            >
+            <Col span={9} className="flex flex-col items-center justify-center">
                 <div>
-                    <p className="text-[24px] text-start font-bold">
-                        Tizimga xush kelibsiz!
-                    </p>
+                    <p className="text-[24px] text-start font-bold">Tizimga xush kelibsiz!</p>
                     <p className="text-[16px] text-[#8D9BA8] text-start w-72">
-                        Tizimga kirish uchun, login va parol orqali
-                        autentifikatsiya jarayonidan o’ting
+                        Tizimga kirish uchun, login va parol orqali autentifikatsiya jarayonidan o’ting
                     </p>
                 </div>
-                <Form
-                    name="basic"
-                    layout="vertical"
-                    initialValues={{remember: true}}
+                <AutoForm
+                    data={data}
+                    form={form}
                     onFinish={onFinish}
-                    className="w-[300px] mt-10"
+                    layout={"vertical"}
+                    className={"mt-[30px] w-[300px]"}
+                />
+
+                <div className={"mb-[20px] w-[300px] flex justify-end"}>
+                    <Link to={"/sign-up"} className={"hover:text-black"}>
+                        Ro'yxatdan o'tish
+                    </Link>
+                </div>
+
+                <Button
+                    type={"primary"}
+                    className={"w-[300px] py-[28px] bg-[#2D3A45] hover:!bg-[#2D3A45]"}
+                    size={"large"}
+                    onClick={() => form.submit()}
                 >
-                        <Form.Item
-                            name="username"
-                            rules={[{required: true, message: 'Please input your email!'}]}
-                        >
-                            <Input placeholder="Email" className="h-14 ps-5"/>
-                        </Form.Item>
-
-                        <Form.Item
-                            name="password"
-                            rules={[{required: true, message: 'Please input your password!'}]}
-                        >
-                            <Input.Password placeholder="Parol" className="h-14 ps-5 "/>
-                        </Form.Item>
-
-                    <Form.Item>
-                        <Button
-                            type="primary"
-                            htmlType="submit"
-                            className="w-full h-14 bg-[#2D3A45] hover:!bg-[#2D3A45]"
-                        >
-                            Tizimga kirish
-                        </Button>
-                    </Form.Item>
-                </Form>
+                    Kirish
+                </Button>
             </Col>
         </Row>
     )

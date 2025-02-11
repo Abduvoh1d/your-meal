@@ -1,11 +1,5 @@
-import { Outlet } from "react-router-dom"
-
 function Sidebar() {
-    return (
-        <div>
-            <Outlet/>
-        </div>
-    )
+    return <div></div>
 }
 
 export default Sidebar
