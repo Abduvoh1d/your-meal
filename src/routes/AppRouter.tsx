@@ -4,8 +4,9 @@ import { AdminPagesConfig, AuthPagesConfig } from "../config/page.config.ts"
 import Layout from "../components/Layout.tsx"
 import { Loading } from "../components/Loading.tsx"
 import Orders from "../pages/admin/Orders.tsx"
+import { useTranslation } from "react-i18next"
+import PrivateRoute from "../components/PrivateRoute.tsx"
 
-// Lazy load sahifalar
 const SignIn = lazy(() => import("../pages/auth/SignIn"))
 const SignUp = lazy(() => import("../pages/auth/SignUp"))
 const Dashboard = lazy(() => import("../pages/admin/Dashboard"))
@@ -17,6 +18,8 @@ const Main = lazy(() => import("../pages/user/Main"))
 const NotFound = lazy(() => import("../pages/404/NotFound"))
 
 const AppRouter = () => {
+    const {i18n} = useTranslation()
+
     return (
         <Router>
             <Suspense fallback={<Loading />}>
@@ -24,13 +27,13 @@ const AppRouter = () => {
                     <Route path={AuthPagesConfig.Login} element={<SignIn />} />
                     <Route path={AuthPagesConfig.Register} element={<SignUp />} />
 
-                    <Route path={`/admin`} element={<Layout />}>
-                        <Route path={AdminPagesConfig.Buyurtmalar} element={<Orders />} />
-                        <Route path={AdminPagesConfig.Maxsulotlar} element={<Products />} />
-                        <Route path={AdminPagesConfig.Kategorylar} element={<Categorys />} />
-                        <Route path={AdminPagesConfig.Filialar} element={<Filials />} />
-                        <Route path={AdminPagesConfig.Mijozlar} element={<Customers />} />
-                        <Route path={AdminPagesConfig.Xisobot} element={<Dashboard />} />
+                    <Route path={`/${i18n.language}/admin`} element={<Layout />}>
+                        <Route path={AdminPagesConfig.Buyurtmalar} element={<PrivateRoute><Orders /></PrivateRoute>} />
+                        <Route path={AdminPagesConfig.Maxsulotlar} element={<PrivateRoute><Products /></PrivateRoute>} />
+                        <Route path={AdminPagesConfig.Kategorylar} element={<PrivateRoute><Categorys /></PrivateRoute>} />
+                        <Route path={AdminPagesConfig.Filialar} element={<PrivateRoute><Filials /></PrivateRoute>} />
+                        <Route path={AdminPagesConfig.Mijozlar} element={<PrivateRoute><Customers /></PrivateRoute>} />
+                        <Route path={AdminPagesConfig.Xisobot} element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                     </Route>
 
                     <Route path="/" element={<Main />} />

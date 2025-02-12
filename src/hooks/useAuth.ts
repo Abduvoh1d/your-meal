@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react"
+import { observer } from "mobx-react-lite"
 import { authStore } from "../store/authStore"
+import { JSX } from "react"
 
 export const useAuth = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
-
-    useEffect(() => {
-        setIsAuthenticated(!!authStore.token)
-    }, [authStore.token])
-
-    return { isAuthenticated }
+    return { isAuthenticated: authStore.isAuthenticated }
 }
+
+export const AuthObserver = observer(({ children }: { children: JSX.Element }) => {
+    return authStore.isAuthenticated ? children : null
+})

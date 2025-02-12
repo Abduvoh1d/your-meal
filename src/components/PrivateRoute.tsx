@@ -5,7 +5,7 @@ import { JSX } from "react"
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
     const { isAuthenticated } = useAuth()
 
-    return isAuthenticated ? children : <Navigate to="/sign-in" />
+    return isAuthenticated ? children : <Navigate to="/sign-in" replace />
 }
 
 export default PrivateRoute

@@ -1,5 +1,9 @@
 function Categorys() {
-    return <div>Categorys</div>
+    return (
+        <div className={"min-h-[calc(100vh-80px)] bg-[#EDEFF3]"}>
+
+        </div>
+    )
 }
 
 export default Categorys

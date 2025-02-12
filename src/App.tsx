@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import AppRouter from "./routes/AppRouter.tsx"
 import { ConfigProvider } from "antd"
+import "./i18n/i18n.ts"
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -35,14 +36,24 @@ function App() {
                     Menu: {
                         colorText: "#000",
                         itemMarginBlock: 5,
-                        itemActiveBg: "#fff",
+                        itemActiveBg: "#FFF",
                         itemSelectedBg: "#FCB600",
-                        itemSelectedColor: "#fff",
+                        itemSelectedColor: "#FFF",
                     },
+                    Select: {
+                        lineWidth: 2,
+                        controlOutlineWidth: 0,
+                        colorPrimary: "#FCB600",
+                        hoverBorderColor: "#F7DA8F",
+                        activeBorderColor: "#FCB600",
+                        optionSelectedBg: "#FCB600",
+                        optionSelectedColor: "#FFF",
+                    }
                 },
             }}
         >
-            <QueryClientProvider client={queryClient}>
+
+        <QueryClientProvider client={queryClient}>
                 <ReactQueryDevtools initialIsOpen={false} />
                 <AppRouter />
             </QueryClientProvider>
