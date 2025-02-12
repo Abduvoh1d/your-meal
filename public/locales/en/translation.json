@@ -1,3 +1,9 @@
 {
-  "salom": "hello"
+  "Buyurtmalar": "Orders",
+  "Maxsulotlar": "Products",
+  "Kategoriyalar": "Categories",
+  "Filiallar": "Filials",
+  "Mijozlar": "Customers",
+  "Xisobot": "Report",
+  "Chiqish": "Logout"
 }

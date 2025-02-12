@@ -1,25 +1,25 @@
 import { makeAutoObservable } from "mobx"
 
 class AuthStore {
-    token = localStorage.getItem("token") || ""
+	token = localStorage.getItem("token") || ""
 
-    constructor() {
-        makeAutoObservable(this)
-    }
+	constructor() {
+		makeAutoObservable(this)
+	}
 
-    get isAuthenticated() {
-        return !!this.token
-    }
+	get isAuthenticated() {
+		return !!this.token
+	}
 
-    setToken(newToken: string) {
-        this.token = newToken
-        localStorage.setItem("token", newToken)
-    }
+	setToken(newToken: string) {
+		this.token = newToken
+		localStorage.setItem("token", newToken)
+	}
 
-    clearToken() {
-        this.token = ""
-        localStorage.removeItem("token")
-    }
+	clearToken() {
+		this.token = ""
+		localStorage.removeItem("token")
+	}
 }
 
 const authStore = new AuthStore()

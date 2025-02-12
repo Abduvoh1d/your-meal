@@ -3,15 +3,15 @@ import Header from "./Header.tsx"
 import { Outlet } from "react-router-dom"
 
 function Layout() {
-    return (
-        <div className={"relative flex items-start justify-start w-full min-h-screen"}>
-            <Sidebar />
-            <div>
-                <Header />
-                <Outlet />
-            </div>
-        </div>
-    )
+	return (
+		<div className={"relative flex min-h-screen w-full items-start justify-start"}>
+			<Sidebar />
+			<div>
+				<Header />
+				<Outlet />
+			</div>
+		</div>
+	)
 }
 
 export default Layout

@@ -1,19 +1,19 @@
 class AuthPages {
-    Login = "sign-in"
-    Register = "sign-up"
+	Login = "sign-in"
+	Register = "sign-up"
 }
 
 class AdminPages {
-    Buyurtmalar = "orders"
-    Maxsulotlar = "products"
-    Kategorylar = "categorys"
-    Filialar = "filials"
-    Mijozlar = "customers"
-    Xisobot = "dashboard"
+	Buyurtmalar = "orders"
+	Maxsulotlar = "products"
+	Kategorylar = "categorys"
+	Filialar = "filials"
+	Mijozlar = "customers"
+	Xisobot = "report"
 }
 
 class UserPages {
-    Asosiy = "main"
+	Asosiy = "main"
 }
 
 export const AuthPagesConfig = new AuthPages()
