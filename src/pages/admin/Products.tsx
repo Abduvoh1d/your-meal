@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next"
 import Excel from "../../components/Excel.tsx"
 
 function Products() {
-	const {t} = useTranslation()
+	const { t } = useTranslation()
 
 	return (
 		<div className={"min-h-[calc(100vh-80px)] bg-[#EDEFF3] p-[20px]"}>

@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 body {
 	margin: 0;
@@ -16,6 +15,30 @@ body {
 	box-sizing: border-box;
 }
 
+/* Scrollbar styles */
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #9ca3af;
+	border-radius: 10px;
+	border: 1px solid transparent;
+}
+
+::-webkit-scrollbar-button {
+	display: none;
+}
+
+::selection {
+	background-color: #20d472; /* Tanlangan matnning orqa foni */
+	color: #fff; /* Tanlangan matnning rangi */
+}
+
+/* antd-menu styles */
+
 .ant-menu {
 	border-left: 4px solid #fcb600;
 	border-inline-end: 0 !important;
@@ -25,6 +48,7 @@ body {
 
 .ant-menu-item {
 	margin-left: 0 !important;
+	user-select: none !important;
 	padding-block: 30px !important;
 	border-radius: 0 6px 6px 0 !important;
 }

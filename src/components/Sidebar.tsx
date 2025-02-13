@@ -11,7 +11,7 @@ import { AdminPagesConfig, AuthPagesConfig } from "../config/page.config.ts"
 import { useTranslation } from "react-i18next"
 
 function Sidebar() {
-	const {t} = useTranslation()
+	const { t } = useTranslation()
 	const location = useLocation()
 	const navigate = useNavigate()
 
@@ -99,11 +99,11 @@ function Sidebar() {
 
 	return (
 		<div className="sticky left-0 top-0 h-[100vh] w-[300px] bg-white shadow-md">
-			<div className="flex items-center justify-between pb-[50px] px-6 pt-7">
+			<div className="flex items-center justify-between px-6 pb-[50px] pt-7">
 				<img src="/img/sidebarLogo.svg" alt="Logo" className="mb-2 h-20 w-20 rounded-full object-cover" />
 				<div>
-					<h2 className="text-lg font-[700] font-[Nunito Sans]">Fast Food</h2>
-					<p className="text-sm text-[#959CA1] font-[Nunito Sans]">Online maxsulot sotuvi</p>
+					<h2 className="font-[Nunito Sans] text-lg font-[700]">Fast Food</h2>
+					<p className="font-[Nunito Sans] text-sm text-[#959CA1]">Online maxsulot sotuvi</p>
 				</div>
 			</div>
 
@@ -116,10 +116,7 @@ function Sidebar() {
 			/>
 
 			<div className="absolute bottom-5 w-full">
-				<Menu
-					mode="inline"
-					items={logOutItem}
-				/>
+				<Menu mode="inline" items={logOutItem} />
 			</div>
 		</div>
 	)
