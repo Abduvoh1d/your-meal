@@ -4,7 +4,6 @@ import { AdminPagesConfig, AuthPagesConfig } from "../config/page.config.ts"
 import Layout from "../components/Layout.tsx"
 import { Loading } from "../components/Loading.tsx"
 import Orders from "../pages/admin/Orders.tsx"
-import PrivateRoute from "../components/PrivateRoute.tsx"
 
 const SignIn = lazy(() => import("../pages/auth/SignIn"))
 const SignUp = lazy(() => import("../pages/auth/SignUp"))
@@ -27,54 +26,12 @@ const AppRoutes = () => {
 				<Route path={AuthPagesConfig.Register} element={<SignUp />} />
 
 				<Route path={`/${currentLang}/admin`} element={<Layout />}>
-					<Route
-						path={AdminPagesConfig.Buyurtmalar}
-						element={
-							<PrivateRoute>
-								<Orders />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path={AdminPagesConfig.Maxsulotlar}
-						element={
-							<PrivateRoute>
-								<Products />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path={AdminPagesConfig.Kategorylar}
-						element={
-							<PrivateRoute>
-								<Categorys />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path={AdminPagesConfig.Filialar}
-						element={
-							<PrivateRoute>
-								<Filials />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path={AdminPagesConfig.Mijozlar}
-						element={
-							<PrivateRoute>
-								<Customers />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path={AdminPagesConfig.Xisobot}
-						element={
-							<PrivateRoute>
-								<Dashboard />
-							</PrivateRoute>
-						}
-					/>
+					<Route path={AdminPagesConfig.Buyurtmalar} element={<Orders />} />
+					<Route path={AdminPagesConfig.Maxsulotlar} element={<Products />} />
+					<Route path={AdminPagesConfig.Kategorylar} element={<Categorys />} />
+					<Route path={AdminPagesConfig.Filialar} element={<Filials />} />
+					<Route path={AdminPagesConfig.Mijozlar} element={<Customers />} />
+					<Route path={AdminPagesConfig.Xisobot} element={<Dashboard />} />
 				</Route>
 
 				<Route path="/" element={<Navigate to={`/${currentLang}/main`} replace />} />

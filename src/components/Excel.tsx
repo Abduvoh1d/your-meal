@@ -12,7 +12,7 @@ interface ExcelProps {
 
 function Excel({
 	disable,
-	className = "px-[10px] py-[9px] border-2 rounded border-[#20D472] me-4",
+	className = "me-4 px-[10px] py-[9px] border-2 rounded border-[#20D472] bg-[#20D472]/10",
 	iconClassName = "text-[#20D472] size-[18px]",
 	name,
 }: ExcelProps) {

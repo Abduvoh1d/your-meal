@@ -5,5 +5,13 @@
   "Filiallar": "Filials",
   "Mijozlar": "Customers",
   "Xisobot": "Report",
-  "Chiqish": "Logout"
+  "Chiqish": "Logout",
+  "Maxsulot": "Product",
+  "Kategoriya": "Category",
+  "Narxi": "Price",
+  "Qo’shimcha": "Additional",
+  "Hodisa": "Action",
+  "Maxsulot qo'shish": "Add product",
+  "Yangi maxsulot qo’shish": "Add new product",
+  "Maxsulotni o'zgartirish": "Edit product"
 }

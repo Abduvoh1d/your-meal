@@ -14,7 +14,7 @@ function NotFound() {
 				title="404"
 				subTitle="Sorry, the page you visited does not exist."
 				extra={
-					<Link to={`/${i18n.language}/admin/${AdminPagesConfig.Xisobot}`}>
+					<Link to={`/${i18n.language}/admin/${AdminPagesConfig.Buyurtmalar}`}>
 						<Button type="primary">Back Home</Button>
 					</Link>
 				}

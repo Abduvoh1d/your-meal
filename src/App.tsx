@@ -26,6 +26,9 @@ function App() {
 	return (
 		<ConfigProvider
 			theme={{
+				token: {
+					fontFamily: "Montserrat",
+				},
 				components: {
 					Input: {
 						hoverBorderColor: "#F7DA8F",
@@ -34,7 +37,6 @@ function App() {
 						lineWidth: 2,
 					},
 					Menu: {
-						fontFamily: "Nunito Sans",
 						colorText: "#000",
 						itemMarginBlock: 5,
 						itemActiveBg: "#FFF",
@@ -44,12 +46,16 @@ function App() {
 					Select: {
 						lineWidth: 2,
 						controlOutlineWidth: 0,
-						fontFamily: "Montserrat",
 						colorBorder: "#9ca3af",
 						hoverBorderColor: "#9ca3af",
 						activeBorderColor: "#9ca3af",
 						optionSelectedBg: "#d1d5db",
 						optionSelectedColor: "#000",
+					},
+					Button: {
+						lineWidth: 0,
+						colorPrimary: "#20D472",
+						colorPrimaryHover: "#20D472",
 					},
 				},
 			}}
