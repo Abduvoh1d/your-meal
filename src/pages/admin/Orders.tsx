@@ -1,6 +1,6 @@
 import Excel from "../../components/Excel.tsx"
 import { useTranslation } from "react-i18next"
-import { Button, Drawer, Table, TableProps } from "antd"
+import { Button, Drawer, FormProps, Table, TableProps } from "antd"
 import { LuPencil, LuTrash2 } from "react-icons/lu"
 import { useRouterPush } from "../../hooks/use-router-push.ts"
 import { useLocationParams } from "../../hooks/use-location-params.ts"
@@ -25,6 +25,11 @@ function Orders() {
 
 	function addOrder() {
 		push({ query: { ...query, add: true } })
+	}
+
+	const onFinish: FormProps["onFinish"] = (values: unknown) => {
+		console.log(values)
+		onClose()
 	}
 
 	const columns: TableProps["columns"] = [
@@ -98,41 +103,44 @@ function Orders() {
 
 	const AutoFormData: IAutoForm[] = [
 		{
-			name: "product",
 			label: t("Maxsulot nomi"),
+			name: "product",
 			type: "input",
-			required: true,
+			size: "large",
 			span: 24,
-			className: "!h-[45px] ps-[15px]",
-			// placeholder: t("Maxsulot nomini kiriting"),
+			className: "ps-[15px]",
+			required: [{ required: true, message: "Maxsulot nomini kiriting!" }],
 		},
 		{
-			name: "category",
 			label: t("Kategoriya"),
-			type: "input",
-			required: true,
+			name: "category",
+			type: "select",
+			size: "large",
+			selectOption: [
+				{ value: "Lavash1", label: "Lavash" },
+				{ value: "Lavash2", label: "Lavash2" },
+			],
 			span: 24,
-			className: "!h-[45px] ps-[15px]",
-			// placeholder: t("Kategoriya nomini kiriting"),
+			required: [{ required: true, message: "Maxsulot kategoriyasini tanlang!" }],
 		},
 		{
-			name: "price",
 			label: t("Narxi"),
-			type: "input",
-			required: true,
+			name: "price",
+			type: "number",
+			size: "large",
 			span: 24,
-			className: "!h-[45px] ps-[15px]",
-			// placeholder: t("Narxi kiriting"),
+			className: "ps-[15px]",
+			required: [{ required: true, message: "Maxsulot narxini kiriting!" }],
 		},
 		{
-			name: "comment",
 			label: t("Qo’shimcha ma’lumot"),
+			name: "comment",
 			type: "input",
-			required: true,
+			size: "large",
 			span: 24,
-			className: "!h-[45px] ps-[15px]",
-			// placeholder: t("Qo’shimcha kiriting"),
-		},
+			className: "ps-[15px]",
+			required: [{ required: true, message: "Qo'shimcha ma'lumot kiriting!" }],
+		}
 	]
 
 	return (
@@ -166,12 +174,19 @@ function Orders() {
 				onClose={onClose}
 				open={Boolean(query.edit) || Boolean(query.add)}
 				width={500}
+				footer={
+					<Button
+						type="primary"
+						htmlType={"submit"}
+						size="large"
+						className="w-full py-[9px]"
+						onClick={() => form.submit()}
+					>
+						{query.add ? t("Qo’shish") : t("O’zgartirish")}
+					</Button>
+				}
 			>
-				<AutoForm data={AutoFormData} form={form} layout={"vertical"} />
-
-				<Button type={"primary"} className={"px-[35px] py-[9px]"} size={"large"} onClick={() => form.submit()}>
-					{query.add ? t("Qo’shish") : t("O’zgartirish")}
-				</Button>
+				<AutoForm data={AutoFormData} form={form} onFinish={onFinish} layout="vertical" loading={false}/>
 			</Drawer>
 		</div>
 	)

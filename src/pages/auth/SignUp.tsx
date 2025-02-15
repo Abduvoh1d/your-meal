@@ -2,18 +2,27 @@ import { Button, Col, FormProps, Row } from "antd"
 import { AutoForm, IAutoForm } from "../../components/auto-form"
 import { useForm } from "antd/es/form/Form"
 import { Link } from "react-router-dom"
+import { ISignUp } from "../../interface"
 
 function SignUp() {
 	const [form] = useForm()
 
 	const data: IAutoForm[] = [
 		{
-			name: "username",
+			name: "firstName",
 			type: "input",
 			span: 24,
-			placeholder: "Username",
+			placeholder: "Ism",
 			className: "!h-[45px] ps-[20px]",
-			required: true,
+			required: [{ required: true, message: "Ismingizni kiriting!" }],
+		},
+		{
+			name: "lastName",
+			type: "input",
+			span: 24,
+			placeholder: "Familya",
+			className: "!h-[45px] ps-[20px]",
+			required: [{ required: true, message: "Familyangizni kiriting!" }],
 		},
 		{
 			name: "email",
@@ -21,7 +30,7 @@ function SignUp() {
 			span: 24,
 			placeholder: "Email",
 			className: "!h-[45px] ps-[20px]",
-			required: true,
+			required: [{ required: true, message: "Emailni kiriting!" }],
 		},
 		{
 			name: "password",
@@ -29,11 +38,11 @@ function SignUp() {
 			span: 24,
 			placeholder: "Password",
 			className: "!h-[45px] ps-[20px]",
-			required: true,
+			required: [{ required: true, message: "Parolni kiriting!" }],
 		},
 	]
 
-	const onFinish: FormProps["onFinish"] = (values: unknown) => {
+	const onFinish: FormProps["onFinish"] = (values: ISignUp) => {
 		console.log(values)
 	}
 
@@ -43,7 +52,7 @@ function SignUp() {
 				<div>
 					<p className="text-start text-[24px] font-bold">Ro'yxatdan o'tish</p>
 					<p className="w-72 text-start text-[16px] text-[#8D9BA8]">
-						Ro'yxatdan o'tish uchun: username, login va parol orqali registratsiya jarayonidan o’ting
+						Ro'yxatdan o'tish uchun: username, login va parol orqali registratsiya jarayonidan o'ting
 					</p>
 				</div>
 				<AutoForm

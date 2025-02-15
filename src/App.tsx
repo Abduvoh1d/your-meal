@@ -30,32 +30,12 @@ function App() {
 					fontFamily: "Montserrat",
 				},
 				components: {
-					Input: {
-						hoverBorderColor: "#F7DA8F",
-						activeBorderColor: "#FCB600",
-						activeShadow: "",
-						lineWidth: 2,
-					},
-					Menu: {
-						colorText: "#000",
-						itemMarginBlock: 5,
-						itemActiveBg: "#FFF",
-						itemSelectedBg: "#FCB600",
-						itemSelectedColor: "#FFF",
-					},
-					Select: {
-						lineWidth: 2,
-						controlOutlineWidth: 0,
-						colorBorder: "#9ca3af",
-						hoverBorderColor: "#9ca3af",
-						activeBorderColor: "#9ca3af",
-						optionSelectedBg: "#d1d5db",
-						optionSelectedColor: "#000",
-					},
 					Button: {
 						lineWidth: 0,
+						primaryShadow: "",
 						colorPrimary: "#20D472",
 						colorPrimaryHover: "#20D472",
+						colorPrimaryActive: "#20D472",
 					},
 				},
 			}}
