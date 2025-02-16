@@ -3,6 +3,7 @@ import { AutoForm, IAutoForm } from "../../components/auto-form"
 import { useForm } from "antd/es/form/Form"
 import { Link } from "react-router-dom"
 import { ISignUp } from "../../interface"
+import AuthStore from "../../store/authStore.ts"
 
 function SignUp() {
 	const [form] = useForm()
@@ -42,8 +43,8 @@ function SignUp() {
 		},
 	]
 
-	const onFinish: FormProps["onFinish"] = (values: ISignUp) => {
-		console.log(values)
+	const onFinish: FormProps["onFinish"] = async (values: ISignUp) => {
+		await AuthStore.register(values)
 	}
 
 	return (

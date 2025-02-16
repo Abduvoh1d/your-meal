@@ -1,6 +1,5 @@
 import { ConfigProvider, Menu, MenuProps } from "antd"
 import { useLocation, useNavigate } from "react-router-dom"
-import checkIcon from "../assets/icons/check-circle.svg"
 import boxIcon from "../assets/icons/box.svg"
 import chartIcon from "../assets/icons/chart.svg"
 import layersIcon from "../assets/icons/layers.svg"
@@ -9,6 +8,7 @@ import usersIcon from "../assets/icons/users.svg"
 import logOutIcon from "../assets/icons/log-out.svg"
 import { AdminPagesConfig, AuthPagesConfig } from "../config/page.config.ts"
 import { useTranslation } from "react-i18next"
+import AuthStore from "../store/authStore.ts"
 
 function Sidebar() {
 	const { t } = useTranslation()
@@ -19,11 +19,11 @@ function Sidebar() {
 
 	const items: MenuItem[] = [
 		{
-			key: AdminPagesConfig.Buyurtmalar,
-			label: t("Buyurtmalar"),
+			key: AdminPagesConfig.Xisobot,
+			label: t("Xisobot"),
 			icon: (
 				<div className="rounded-[6px] bg-[#F6F6F6] p-[10px]">
-					<img src={checkIcon} alt="check" style={{ width: 16, height: 16 }} />
+					<img src={chartIcon} alt="chart" style={{ width: 16, height: 16 }} />
 				</div>
 			),
 		},
@@ -63,15 +63,6 @@ function Sidebar() {
 				</div>
 			),
 		},
-		{
-			key: AdminPagesConfig.Xisobot,
-			label: t("Xisobot"),
-			icon: (
-				<div className="rounded-[6px] bg-[#F6F6F6] p-[10px]">
-					<img src={chartIcon} alt="chart" style={{ width: 16, height: 16 }} />
-				</div>
-			),
-		},
 	]
 
 	const logOutItem: MenuItem[] = [
@@ -87,8 +78,8 @@ function Sidebar() {
 				</div>
 			),
 			onClick: () => {
-				localStorage.removeItem("token")
-				navigate(`/${AuthPagesConfig.Login}`)
+				AuthStore.clearToken()
+				navigate("/" + AuthPagesConfig.Login)
 			},
 		},
 	]

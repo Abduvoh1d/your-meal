@@ -193,17 +193,17 @@ function getInput(props: IAutoForm, loading?: boolean) {
 }
 
 export function AutoForm({
-							 data,
-							 layout = "vertical",
-							 gutter = [20, 0],
-							 form,
-							 className,
-							 onFinish,
-							 variant,
-							 onFinishFailed,
-							 onValuesChange,
-							 loading,
-						 }: AutoFormProps) {
+	data,
+	layout = "vertical",
+	gutter = [20, 0],
+	form,
+	className,
+	onFinish,
+	variant,
+	onFinishFailed,
+	onValuesChange,
+	loading,
+}: AutoFormProps) {
 	return (
 		<ConfigProvider
 			theme={{
@@ -229,10 +229,11 @@ export function AutoForm({
 					},
 					Select: {
 						lineWidth: 2,
+						optionSelectedBg: "#FCB600",
 						activeOutlineColor: "none",
 						hoverBorderColor: "#F7DA8F",
 						activeBorderColor: "#FCB600",
-						optionSelectedColor: "#000",
+						optionSelectedColor: "#FFF",
 					},
 				},
 			}}

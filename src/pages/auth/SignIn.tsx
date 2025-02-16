@@ -3,6 +3,7 @@ import { AutoForm, IAutoForm } from "../../components/auto-form"
 import { useForm } from "antd/es/form/Form"
 import { Link } from "react-router-dom"
 import { ISignIn } from "../../interface"
+import AuthStore from "../../store/authStore.ts"
 
 function SignIn() {
 	const [form] = useForm()
@@ -14,7 +15,7 @@ function SignIn() {
 			span: 24,
 			placeholder: "Email",
 			className: "!h-[45px] ps-[20px]",
-			required: [{required: true, message: "Emailni kiriting!"}],
+			required: [{ required: true, message: "Emailni kiriting!" }],
 		},
 		{
 			name: "password",
@@ -22,12 +23,12 @@ function SignIn() {
 			span: 24,
 			placeholder: "Password",
 			className: "!h-[45px] ps-[20px]",
-			required: [{required: true, message: "Parolni kiriting!"}],
+			required: [{ required: true, message: "Parolni kiriting!" }],
 		},
 	]
 
-	const onFinish: FormProps["onFinish"] = (values: ISignIn) => {
-		console.log(values)
+	const onFinish: FormProps["onFinish"] = async (values: ISignIn) => {
+		await AuthStore.login(values)
 	}
 
 	return (

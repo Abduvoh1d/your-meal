@@ -7,11 +7,15 @@
   "Xisobot": "Отчет",
   "Chiqish": "Выход",
   "Maxsulot": "Продукт",
+  "Maxsulot nomi": "Название продукта",
   "Kategoriya": "Категория",
   "Narxi": "Цена",
   "Qo’shimcha": "Дополнительно",
+  "Qo’shimcha ma’lumot": "Дополнительно информация",
   "Hodisa": "Действие",
   "Maxsulot qo'shish": "Добавить продукт",
   "Yangi maxsulot qo’shish": "Добавить новый продукт",
-  "Maxsulotni o'zgartirish": "Изменить продукт"
+  "Maxsulotni o'zgartirish": "Изменить продукт",
+  "Qo’shish": "Добавить",
+  "O’zgartirish": "Изменить"
 }

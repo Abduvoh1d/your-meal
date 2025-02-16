@@ -4,14 +4,18 @@
   "Kategoriyalar": "Categories",
   "Filiallar": "Filials",
   "Mijozlar": "Customers",
-  "Xisobot": "Report",
+  "Xisobot": "Dashboard",
   "Chiqish": "Logout",
   "Maxsulot": "Product",
   "Kategoriya": "Category",
   "Narxi": "Price",
   "Qo’shimcha": "Additional",
+  "Maxsulot nomi": "Product name",
+  "Qo’shimcha ma’lumot": "Additional information",
   "Hodisa": "Action",
   "Maxsulot qo'shish": "Add product",
   "Yangi maxsulot qo’shish": "Add new product",
-  "Maxsulotni o'zgartirish": "Edit product"
+  "Maxsulotni o'zgartirish": "Edit product",
+  "Qo’shish": "Add",
+  "O’zgartirish": "Edit"
 }

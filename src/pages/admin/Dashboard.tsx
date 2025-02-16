@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next"
 import Excel from "../../components/Excel.tsx"
 
-function Report() {
+function Dashboard() {
 	const { t } = useTranslation()
 
 	return (
@@ -15,4 +15,4 @@ function Report() {
 	)
 }
 
-export default Report
+export default Dashboard
